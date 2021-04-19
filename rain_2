@@ -1,0 +1,280 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/12 14:40:37 by abrun             #+#    #+#             */
+/*   Updated: 2021/04/13 09:37:05 by abrun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push.h"
+
+t_stack		get_stack_a(char **av, int ac)
+{
+	t_stack		stack;
+	int			i;
+
+	if (!(stack.s = malloc(sizeof(int) * (ac - 1))))
+		return (stack);
+	i = 0;
+	while (i < ac - 1)
+	{
+		stack.s[i] = ft_atoi(av[i + 1]);
+		i++;
+	}
+	stack.n = ac - 1;
+	return (stack);
+}
+
+void	ft_swap(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+int		ft_sab(t_stack *stack)
+{
+	if (stack->n > 1)
+		ft_swap(&stack->s[0], &stack->s[1]);
+	return (1);
+}
+
+int		ft_ss(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_sab(stack_a);
+	ft_sab(stack_b);
+	return (1);
+}
+
+int		ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
+{
+	if (buf[2] == '\n')
+	{
+		if (buf[1] == 'a')
+			return (ft_sab(stack_a));
+		else if (buf[1] == 'b')
+			return (ft_sab(stack_b));
+		else if (buf[1] == 's')
+			return (ft_ss(stack_a, stack_b));
+	}
+	return (0);
+}
+
+int		ft_push(t_stack *put, t_stack *rec)
+{
+	if (put->n >= 1)
+		rec->s[rec->n++] = put->s[--put->n];
+	return (1);
+}
+
+int		ft_p(t_stack *stack_a, t_stack *stack_b, char *buf)
+{
+	if (buf[2] == '\n')
+	{
+		if (buf[1] == 'a')
+			return (ft_push(stack_b, stack_a));
+		else if (buf[1] == 'b')
+			return (ft_push(stack_a, stack_b));
+	}
+	return (0);
+}
+
+int		ft_rotate(t_stack *stack)
+{
+	int		i;
+	int		tmp[stack->n];
+
+	i = 0;
+	if (stack->n > 1)
+	{
+		while (i < stack->n - 1)
+		{
+			tmp[i] = stack->s[i + 1];
+			i++;
+		}
+		tmp[i] = stack->s[0];
+		i = 0;
+		while (i < stack->n)
+		{
+			stack->s[i] = tmp[i];
+			i++;
+		}
+	}
+	return (1);
+}
+
+int		ft_rev_rot(t_stack *stack)
+{
+	int		i;
+	int		tmp[stack->n];
+
+	i = 1;
+	if (stack->n > 1)
+	{
+		while (i < stack->n)
+		{
+			tmp[i] = stack->s[i - 1];
+			i++;
+		}
+		tmp[0] = stack->s[i - 1];
+		i = 0;
+		while (i < stack->n)
+		{
+			stack->s[i] = tmp[i];
+			i++;
+		}
+	}
+	return (1);
+}
+
+int		ft_rev_rot_r(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_rev_rot(stack_a);
+	ft_rev_rot(stack_b);
+	return (1);
+}
+
+int		ft_rotate_r(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+	return (1);
+}
+
+int		ft_r(t_stack *stack_a, t_stack *stack_b, char *buf)
+{
+	if (buf[2] == '\n')
+	{
+		if (buf[1] == 'a')
+			return (ft_rotate(stack_a));
+		else if (buf[1] == 'b')
+			return (ft_rotate(stack_b));
+		else if (buf[1] == 'r')
+			return (ft_rotate_r(stack_a, stack_b));
+	}
+	return (0);
+}
+
+int		ft_rr(t_stack *stack_a, t_stack *stack_b, char *buf)	
+{
+	if (buf[3] == '\n')
+	{
+		if (buf[2] == 'a')
+			return (ft_rev_rot(stack_a));
+		else if (buf[2] == 'b')
+			return (ft_rev_rot(stack_b));
+		else if (buf[2] == 'r')
+			return (ft_rev_rot_r(stack_a, stack_b));
+	}
+	return (0);
+}
+
+int		do_change(t_stack *stack_a, t_stack *stack_b, char *buf)
+{
+	if (*buf == 's')
+		return (ft_s(stack_a, stack_b, buf));
+	else if (*buf == 'p')
+		return (ft_p(stack_a, stack_b, buf));
+	else if (*buf == 'r')
+		{
+			if (buf[1] == 'r' && buf[2] != '\n')
+				return (ft_rr(stack_a, stack_b, buf));
+			else
+				return (ft_r(stack_a, stack_b, buf));
+		}
+	else
+		return (0);
+}
+
+void	clear_buf(char *buf)
+{
+	int	i;
+
+	i = 0;
+	while (i < 5)
+		buf[i++] = 0;
+}
+
+void	print_stack(t_stack stack_a, t_stack stack_b)
+{
+	int	i;
+
+	i = 0;
+	printf("a : ");
+	while (i < stack_a.n)
+	{
+		printf("%d ", stack_a.s[i++]);
+	}
+	i = 0;
+	printf("\nb : ");
+	while (i < stack_b.n)
+	{
+		printf("%d ", stack_b.s[i++]);
+	}
+	printf("\n");
+}
+
+int		check_order(t_stack stack)
+{
+	int		i;
+
+	i = 0;
+	while (i < stack.n - 1)
+	{
+		if (stack.s[i] > stack.s[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	check_stack(t_stack stack_a, t_stack stack_b)
+{
+	if (stack_b.n != 0)
+		printf("Stack b not empty !\n");
+	if (check_order(stack_a))
+		printf("OK\n");
+	else
+		printf("KO\n");
+}
+
+int		start_checker(t_stack *stack_a, int ac)
+{
+	char		buf[5];
+	t_stack		stack_b;
+
+	stack_b.n = 0;
+	if (!(stack_b.s = malloc(sizeof(int) * (ac - 1))))
+		return (0);
+	read(1, buf, 4);
+	while (*buf != '\n')
+	{
+		if (!do_change(stack_a, &stack_b, buf))
+		{
+			printf("Mauvaise instruction !\n");
+			return (0);
+		}
+		clear_buf(buf);
+		print_stack(*stack_a, stack_b);
+		read(1, buf, 4);
+	}
+	check_stack(*stack_a, stack_b);
+	return (1);
+}
+
+int		main(int ac, char **av)
+{
+	t_stack		stack_a;
+
+	if (ac < 2)
+		return (0);
+	stack_a = get_stack_a(av, ac);
+	if (!start_checker(&stack_a, ac))
+		return (0);
+}
