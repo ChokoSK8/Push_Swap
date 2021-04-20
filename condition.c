@@ -6,11 +6,49 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:26:20 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 11:46:11 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 15:49:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
+
+int			get_n_rev_sp(t_stack *stk)
+{
+	int		n_rev;
+
+	n_rev = 1;
+	while (stk && stk->keep == 1)
+	{
+		stk = stk->next;
+		n_rev++;
+	}
+	return (n_rev);
+}
+
+int			is_rot_or_rev(t_stack *stk)
+{
+	int		n_rev;
+	int		n_rot;
+
+	n_rev = get_n_rev_sp(stk);
+	n_rot = 0;
+	while (stk)
+	{
+		while (stk && stk->keep == 1)
+		{
+			stk = stk->next;
+			n_rot ++;
+		}
+		if (stk)
+		{
+			n_rot = 0;
+			stk = stk->next;
+		}
+	}
+	if (n_rev < n_rot)
+		return (0);
+	return (1);
+}
 
 int			is_swap_needed(t_stack *stk, t_meth *method)
 {
@@ -21,7 +59,7 @@ int			is_swap_needed(t_stack *stk, t_meth *method)
 	if (ft_stksize(stk) > 2)
 	{
 		clear_keep(tmp);
-		ft_swap(tmp);
+		ft_swap(&tmp);
 		toad = get_method(tmp);
 		if (toad.nbr > method->nbr)
 		{
@@ -56,28 +94,16 @@ int			is_threw_away(t_stack *stk)
 	return (0);
 }
 
-int				is_rot_or_rev(t_stack *stk)
+int				is_rot_or_rev_align(t_stack *stk)
 {
-	int			n_rev;
-	int			n_rot;
+	int		n_rev;
+	int		half;
 
-	n_rev = 1;
-	stk = get_n_rev(stk, &n_rev);
-	n_rot = 0;
-	while (stk)
-	{
-		while (stk && stk->keep == 1)
-		{
-			stk = stk->next;
-			n_rot++;
-		}
-		if (stk)
-		{
-			stk = stk->next;
-			n_rot = 1;
-		}
-	}
-	if (n_rev < n_rot)
+	half = ft_stksize(stk) / 2;
+	n_rev = get_n_rev(stk);
+	printf("n_rev : %d\n", n_rev);
+	printf("half : %d\n", half);
+	if (n_rev < half)
 		return (0);
 	return (1);
 }

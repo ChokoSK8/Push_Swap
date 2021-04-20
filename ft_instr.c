@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:02:24 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/16 13:13:12 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 15:39:42 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,41 @@ t_stack		*ft_rev_rot(t_stack **stack)
 	return (s);
 }
 
-void	ft_swap(t_stack *stk)
+void	ft_swap(t_stack **stk)
 {
 	t_stack		*a;
 	int			n;
 	t_stack		*last;
 	t_stack		*tmp;
 
-	n = ft_stksize(stk);
-	a = stk;
-	while (--n > 2)
+	n = ft_stksize(*stk);
+	a = *stk;
+	if (n == 2)
 	{
-		a = a->next;
+		last = (*stk)->next;
+		last->next = *stk;
+		(*stk)->next = NULL;
+		*stk = last;
 	}
-	last = ft_stklast(stk);
-	tmp = a->next;
-	a->next = last;
-	last->next = tmp;
-	tmp->next = NULL;
+	else
+	{
+		while (--n > 2)
+		{
+			a = a->next;
+		}
+		last = ft_stklast(*stk);
+		tmp = a->next;
+		a->next = last;
+		last->next = tmp;
+		tmp->next = NULL;
+	}
 }
 
-int		ft_sab(t_stack *stack)
+int		ft_sab(t_stack **stack)
 {
 	int		n;
 
-	n = ft_stksize(stack);
+	n = ft_stksize(*stack);
 	if (n > 1)
 		ft_swap(stack);
 	return (1);
@@ -90,8 +100,8 @@ int		ft_sab(t_stack *stack)
 
 int		ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_sab(stack_a);
-	ft_sab(stack_b);
+	ft_sab(&stack_a);
+	ft_sab(&stack_b);
 	return (1);
 }
 

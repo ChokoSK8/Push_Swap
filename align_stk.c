@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:35:29 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 16:25:56 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 16:53:10 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ t_stack		*align_stack_a(t_stack *stk, int *counter)
 	t_meth		method;
 	int			rot;
 
-	rot = is_rot_or_rev(stk);
+	rot = is_rot_or_rev_align(stk);
 	while (!is_align(stk))
 	{
-	method = get_method(stk);
-	clear_keep(stk);
-	put_keep(stk, method);
+		method = get_method(stk);
+		clear_keep(stk);
+		put_keep(stk, method);
 		if (rot)
 		{
 			printf("ROTATE\n");

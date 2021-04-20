@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 13:49:18 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 16:22:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int				ft_s(t_stack *stack_a, t_stack *stack_b, char *buf);
 
 int				ft_ss(t_stack *stack_a, t_stack *stack_b);
 
-int				ft_sab(t_stack *stack);
+int				ft_sab(t_stack **stack);
 
-void			ft_swap(t_stack *stk);
+void			ft_swap(t_stack **stk);
 
 t_stack			*ft_rev_rot(t_stack **stack);
 
@@ -132,6 +132,8 @@ int				is_more_staying(t_stack *stk);
 
 int				is_rot_or_rev(t_stack *stk);
 
+int				is_rot_or_rev_align(t_stack *stk);
+
 int				is_threw_away(t_stack *stk);
 
 int				is_top_disp(t_stack *stk);
@@ -152,7 +154,7 @@ void			clear_keep(t_stack *stk);
 
 void			clear_buf(char *buf);
 
-t_stack			*get_n_rev(t_stack *stk, int *n_rev);
+int				get_n_rev(t_stack *stk);
 
 int				get_n_greater(t_stack *stk, int ret);
 
@@ -179,4 +181,6 @@ t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, int *counter, t_param *para
 t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, int *counter, t_param *param);
 
 t_stack			*make_last_step(t_stack *stk_a, int *counter, t_stack **stk_b);
+
+int				is_swap_needed_b(t_stack *stk);
 #endif 

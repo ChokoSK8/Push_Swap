@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:50:30 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 12:03:39 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 12:05:27 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		get_n_index(t_stack *stk, int ret)
 	n = 1;
 	while (stk)
 	{
-		if (stk->index == ret - 1)
+		if (stk->index == ret + 1)
 		{
 			ret = stk->index;
 			n++;

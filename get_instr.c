@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:06:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/13 16:47:34 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 15:30:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int		ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
 	{
 		if (buf[1] == 'a')
 		{
-			ft_sab(stack_a);
+			ft_sab(&stack_a);
 			return (1);
 		}
 		else if (buf[1] == 'b')
 		{
-			ft_sab(stack_b);
+			ft_sab(&stack_b);
 			return (1);
 		}
 		else if (buf[1] == 's')

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:51:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 16:29:49 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 16:58:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,14 @@ t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b, int *counter)
 	while (size_b--)
 	{
 		get_choosen(stack_a, stack_b, ret);
-	//	printf("On fait %d opérations\n", ret[0]);
+	/*	printf("On fait %d opérations\n", ret[0]);
+		printf("On push %d pour %d\n", ret[1], ret[2]);
+		printf("\n--------------------------------------\n");
+		printf("A : \n");
+		print_stk(stack_a);
+		printf("B : \n");
+		print_stk(stack_b);*/
+		printf("counter : %d\n", *counter);
 		param.len[0] = ft_stksize(stack_a);
 		param.len[1] = ft_stksize(stack_b);
 		param.count[0] = get_moves_b(stack_a, ret[2]);
@@ -35,8 +42,10 @@ t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b, int *counter)
 		else if ((double)(ret[2] + 1) < param.len[0] / 2.0000
 			&& (double)(ret[1] + 1) < param.len[1] / 2.0000)
 			*counter += make_rrev_rot(&stack_a, &stack_b, param.count);
+		printf("counter : %d\n", *counter);
 		stack_a = make_rev_or_rot_a(stack_a, ret, counter, &param);
 		stack_b = make_rev_or_rot_b(stack_b, ret, counter, &param);
+		printf("counter : %d\n", *counter);
 	/*	printf("\n--------------------------------------\n");
 		printf("A : \n");
 		print_stk(stack_a);
@@ -103,6 +112,30 @@ int		get_moves_a(t_stack *stk, int index, int *pos)
 	return (n);
 }
 
+int			is_same_command(t_stack *stk_a, t_stack *stk_b, int pos_b, int pos_a)
+{
+	int		len_a;
+	int		len_b;
+	int		rot_a;
+	int		rot_b;
+
+	len_a = ft_stksize(stk_a);
+	len_b = ft_stksize(stk_b);
+	if (len_a < 2 || (double)(pos_a + 1) < (double)len_a / 2.000)
+		rot_a = 0;
+	else
+		rot_a = 1;
+	if (len_b < 2 || (double)(pos_b + 1) < (double)len_b / 2.000)
+		rot_b = 0;
+	else
+		rot_b = 1;
+	if (rot_a == rot_b)
+		return (1);
+	return (0);
+}
+
+#define MAX(x, y)	x < y ? y : x;
+
 int		*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 {
 	t_stack		*next;
@@ -110,6 +143,7 @@ int		*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 	int			n2;
 	int			pos = 0;
 	int			pos_a = -1;
+	int			somme;
 
 	next = stack_b;
 	ret[0] = 2147483647;
@@ -117,9 +151,14 @@ int		*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 	{
 		n1 = get_moves_b(stack_b, pos);
 		n2 = get_moves_a(stack_a, next->index, &pos_a);
-		if (ret[0] > n1 + n2)
+		somme = n1 + n2;
+		if (is_same_command(stack_a, stack_b, pos, pos_a))
 		{
-			ret[0] = n1 + n2;
+			somme = MAX(n1, n2);
+		}
+		if (ret[0] > somme)
+		{
+			ret[0] = somme;
 			ret[1] = pos;
 			ret[2] = pos_a;
 		}

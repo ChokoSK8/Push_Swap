@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:37:31 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 11:45:47 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/20 13:48:56 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ int			count_keep(t_stack *stk)
 	return (n);
 }
 
-t_stack		*get_n_rev(t_stack *stk, int *n_rev)
+int		get_n_rev(t_stack *stk)
 {
-	while (stk && stk->keep == 1)
+	int		n_rev;
+
+	n_rev = 0;
+	while (stk && stk->index != 0)
 	{
 		stk = stk->next;
-		*n_rev += 1;
+		n_rev += 1;
 	}
-	return (stk);
+	return (n_rev);
 }
