@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:06:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/20 16:54:00 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/21 09:36:53 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,9 +166,9 @@ t_stacks		get_stack_b(t_stack *stk, int *counter)
 		else if (is_top_disp(stk))
 			stack_b = make_push(&stk, stack_b, counter);
 		else
-			stk = make_rot_or_rev(stk, &method, counter);
+		//	stk = make_rot_or_rev(stk, &method, counter);
 		//	stk = make_rot(stk, &method, counter);
-		//	*counter += make_rrev_rot_2(&stk, &stack_b, &method);
+			*counter += make_rrev_rot_2(&stk, &stack_b, &method);
 	/*	printf("\n--------------------------------------\n");
 		printf("A : \n");
 		print_stk(stk);
