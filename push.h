@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/20 16:22:29 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/21 12:23:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include "Libft/libft.h"
+#define MAX(x, y)	x < y ? y : x;
 
 typedef struct	s_stack
 {
@@ -86,7 +87,7 @@ void			print_stacks(t_stack *a, t_stack *b);
 
 void			print_stk(t_stack *stk);
 
-t_stacks		get_stack_b(t_stack *stk, int *counter);
+t_stacks		get_stack_b(t_stack *stk);
 
 void			put_index(t_stack *stk);
 
@@ -116,11 +117,11 @@ int				is_more_staying(t_stack *stk);
 
 int				is_align(t_stack *stk);
 
-t_stack			*align_stack_a(t_stack *stk, int *counter);
+t_stack			*align_stack_a(t_stack *stk);
 
 int				is_swap_needed_align(t_stack *stk);
 
-t_stack			*move_b_to_a(t_stack *stk, t_stack *stk_b, int *counter);
+t_stack			*move_b_to_a(t_stack *stk, t_stack *stk_b);
 
 int				*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret);
 
@@ -168,19 +169,31 @@ t_stack			*put_keep_index(t_stack *stk);
 
 int				make_swap(t_stack **stk, t_meth method);
 
-t_stack			*make_push(t_stack **stk, t_stack *stk_b, int *counter);
+t_stack			*make_push(t_stack **stk, t_stack *stk_b);
 
-t_stack			*make_rot_or_rev(t_stack *stk, t_meth *method, int *counter);
+t_stack			*make_rot_or_rev(t_stack *stk, t_meth *method);
 
 int				make_rrotate(t_stack **stk_a, t_stack **stk_b, int *count);
 
 int				make_rrev_rot(t_stack **stk_a, t_stack **stk_b, int *count);
 
-t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, int *counter, t_param *param);
+t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param);
 
-t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, int *counter, t_param *param);
+t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, t_param *param);
 
-t_stack			*make_last_step(t_stack *stk_a, int *counter, t_stack **stk_b);
+t_stack			*make_last_step(t_stack *stk_a, t_stack **stk_b);
 
 int				is_swap_needed_b(t_stack *stk);
+
+int				start_checker(t_stack *stk);
+
+int				make_swap_2(t_stack **stk_a, t_meth method, t_stack **stk_b);
+
+int				make_rrev_rot_2(t_stack **stk_a, t_stack **stk_b, t_meth *method);
+
+int				is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method);
+
+t_stack			*make_push_needed(t_stack *stk_a, t_stack **stk_b, t_meth method);
+
+int				is_same_command(t_stack *stack_a, t_stack *stack_b, int pos, int pos_a);
 #endif 

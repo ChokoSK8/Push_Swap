@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   condition_utils.c                                  :+:      :+:    :+:   */
+/*   main_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 11:37:31 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 11:13:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/04/21 10:41:57 by abrun             #+#    #+#             */
+/*   Updated: 2021/04/21 11:38:10 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			count_keep(t_stack *stk)
+int		main(int ac, char **av)
 {
-	int		n;
+	t_stack		*stack_a;
+	int			ret;
 
-	n = 0;
-	while (stk)
-	{
-		if (stk->keep == 1)
-			n++;
-		stk = stk->next;
-	}
-	return (n);
-}
-
-int			get_n_rev(t_stack *stk)
-{
-	int		n_rev;
-
-	n_rev = 0;
-	while (stk && stk->index != 0)
-	{
-		stk = stk->next;
-		n_rev += 1;
-	}
-	return (n_rev);
+	if (ac < 2)
+		return (0);
+	stack_a = get_stack_a(av, ac);
+	ret = start_checker(stack_a);
+	return (ret);
 }

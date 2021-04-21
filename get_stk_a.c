@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 09:58:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/19 12:29:35 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/21 11:19:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void		put_index(t_stack *stk)
 
 void		put_keep(t_stack *stk, t_meth method)
 {
-
 	while (method.from != stk->index)
 		stk = stk->next;
 	stk->keep = 1;

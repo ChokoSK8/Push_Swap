@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:06:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/20 15:30:46 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/21 12:14:31 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,6 @@ int		ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
 	}
 	return (0);
 }
-
-/*int		ft_p(t_stack *stack_a, t_stack *stack_b, char *buf)
-{
-	if (buf[2] == '\n')
-	{
-		if (buf[1] == 'a')
-		{
-			stack_a = ft_push(stack_b, stack_a);
-			return (1);
-		}
-		else if (buf[1] == 'b')
-		{
-			stack_b = ft_push(stack_a, stack_b);
-			print_stacks(stack_a, stack_b);
-			return (1);
-		}
-	}
-	return (0);
-}*/
 
 int		ft_r(t_stack **stack_a, t_stack **stack_b, char *buf)
 {

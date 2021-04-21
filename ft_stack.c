@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 10:06:54 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/13 16:15:42 by abrun            ###   ########.fr       */
+/*   Updated: 2021/04/21 11:18:09 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,4 @@ void		ft_stkremove_last(t_stack **stk)
 			next = next->next;
 		next->next = NULL;
 	}
-}
-
-void	ft_stkadd_front(t_stack **astk, t_stack *new)
-{
-	new->next = *astk;
-	*astk = new;
 }
