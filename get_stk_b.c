@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:06:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:38:00 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 19:26:16 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_stack			*make_push_needed(t_stack *stk, t_stack **stk_b, t_meth method)
 int				make_swap(t_stack **stk, t_meth method)
 {
 	printf("sa\n");
-	ft_sab(stk);
+	ft_swap(stk);
 	clear_keep(*stk);
 	put_keep(*stk, method);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:23:30 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 15:57:03 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ int				ft_p(t_stack *stack_a, t_stack *stack_b, char *buf);
 int				ft_s(t_stack *stack_a, t_stack *stack_b, char *buf);
 
 int				ft_ss(t_stack *stack_a, t_stack *stack_b);
-
-int				ft_sab(t_stack **stack);
 
 void			ft_swap(t_stack **stk);
 
@@ -162,6 +160,8 @@ int				get_n_greater(t_stack *stk, int ret);
 int				get_n_index(t_stack *stk, int ret);
 
 int				get_min(t_stack *stk, int max);
+
+int				get_max(t_stack *stk, int min);
 
 t_stack			*put_keep_great(t_stack *stk);
 

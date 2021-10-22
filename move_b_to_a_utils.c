@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:54:40 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:24:16 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 19:16:38 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
 
 t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
 {
-	if ((double)(ret[2] + 1) >= param->len[0] / 2.0000)
+	if ((double)(ret[2] + 1) < param->len[0] / 2.0000)
 	{
 		while (param->count[0]--)
 		{
@@ -67,7 +67,7 @@ t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
 
 t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, t_param *param)
 {
-	if ((double)(ret[1] + 1) >= param->len[1] / 2.0000)
+	if ((double)(ret[1] + 1) < param->len[1] / 2.0000)
 	{
 		while (param->count[1]--)
 		{
@@ -95,13 +95,13 @@ t_stack			*make_last_step(t_stack *stk_a, t_stack **stk_b)
 		if (*stk_b && is_swap_needed_b(*stk_b))
 		{
 			printf("ss\n");
-			ft_sab(&stk_a);
-			ft_sab(stk_b);
+			ft_swap(&stk_a);
+			ft_swap(stk_b);
 		}
 		else
 		{
 			printf("sa\n");
-			ft_sab(&stk_a);
+			ft_swap(&stk_a);
 		}
 	}
 	return (stk_a);

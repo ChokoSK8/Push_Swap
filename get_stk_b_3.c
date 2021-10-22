@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:21:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:19:38 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 16:11:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ int			make_swap_2(t_stack **stk, t_meth method, t_stack **stk_b)
 		if ((sb = is_swap_needed_b(*stk_b)))
 		{
 			printf("ss\n");
-			ft_sab(stk);
+			ft_swap(stk);
 			clear_keep(*stk);
 			put_keep(*stk, method);
-			ft_sab(stk_b);
+			ft_swap(stk_b);
 		}
 	}
 	if (!sb)
 	{
 		printf("sa\n");
-		ft_sab(stk);
+		ft_swap(stk);
 		clear_keep(*stk);
 		put_keep(*stk, method);
 	}

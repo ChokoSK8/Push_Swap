@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:35:29 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:18:19 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 19:27:09 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_stack		*align_stack_a(t_stack *stk)
 		method = get_method(stk);
 		clear_keep(stk);
 		put_keep(stk, method);
-		if (rot)
+		if (!rot)
 		{
 			printf("ra\n");
 			stk = ft_rotate(&stk);

@@ -37,10 +37,11 @@ $(NAME):	$(OBJS)
 
 bonus:
 		clang $(CFLAGS) -c $(SRCS) $(BONUS)
-		ar rc $(NAME) *.o
+		$(AR) $(NAME) *.o
 		
 
 all:		$(NAME)
+		bonus
 
 clean:		
 		$(RM) $(OBJS) $(OBJS_B)

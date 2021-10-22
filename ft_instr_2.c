@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:42 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 11:15:51 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/22 19:30:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,23 @@
 
 void		ft_swap(t_stack **stk)
 {
-	t_stack		*a;
-	int			n;
-	t_stack		*last;
-	t_stack		*tmp;
-
-	n = ft_stksize(*stk);
-	a = *stk;
-	if (n == 2)
-	{
-		last = (*stk)->next;
-		last->next = *stk;
-		(*stk)->next = NULL;
-		*stk = last;
-	}
-	else
-	{
-		while (--n > 2)
-			a = a->next;
-		last = ft_stklast(*stk);
-		tmp = a->next;
-		a->next = last;
-		last->next = tmp;
-		tmp->next = NULL;
-	}
-}
-
-int			ft_sab(t_stack **stack)
-{
+	t_stack	*tmp;
 	int		n;
 
-	n = ft_stksize(*stack);
+	n = ft_stksize(*stk);
 	if (n > 1)
-		ft_swap(stack);
-	return (1);
+	{
+		tmp = (*stk)->next;
+		(*stk)->next = tmp->next;
+		tmp->next = *stk;
+		*stk = tmp;
+	}
 }
 
 int			ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_sab(&stack_a);
-	ft_sab(&stack_b);
+	ft_swap(&stack_a);
+	ft_swap(&stack_b);
 	return (1);
 }
 
