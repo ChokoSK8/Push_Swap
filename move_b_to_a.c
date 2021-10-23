@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:51:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:25:17 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/23 16:28:45 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
 	if (!(ret = malloc(sizeof(int) * 3)))
 		return (0);
 	size_b = ft_stksize(stack_b);
+	print_stk(stack_a);
+	printf("\n--------------------------------------------\n\n");
+	print_stk(stack_b);
 	while (size_b--)
 	{
 		get_choosen(stack_a, stack_b, ret);
@@ -37,6 +40,9 @@ t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
 		stack_a = make_rev_or_rot_a(stack_a, ret, &param);
 		stack_b = make_rev_or_rot_b(stack_b, ret, &param);
 		stack_a = make_last_step(stack_a, &stack_b);
+		print_stk(stack_a);
+		printf("\n--------------------------------------------\n\n");
+		print_stk(stack_b);
 	}
 	free(ret);
 	return (stack_a);
@@ -125,5 +131,6 @@ int			*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 		next = next->next;
 		pos[0] += 1;
 	}
+//	printf("n_moves : %d\npos_a : %d\npos_b : %d\n", ret[0], ret[2], ret[1]);
 	return (ret);
 }

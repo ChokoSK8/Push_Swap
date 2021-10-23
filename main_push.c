@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:40:37 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:31:07 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/23 16:27:21 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		main(int ac, char **av)
 	stack_a = s.a;
 	stack_a = move_b_to_a(stack_a, stack_b);
 	stack_a = align_stack_a(stack_a);
-	print_stk(stack_a);	
+//	print_stk(stack_a);	
 	return (0);
 }

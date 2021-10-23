@@ -33,7 +33,7 @@ lib:
 	make -C Libft
 
 $(NAME):	lib $(OBJS)
-		gcc $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) -no-pie
+		gcc $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT)
 
 clean:
 		$(RM) *.o

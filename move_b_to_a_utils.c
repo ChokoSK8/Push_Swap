@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:54:40 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:16:38 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/23 16:26:33 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
 	counter = 0;
 	while (count[0] > 0 && count[1] > 0)
 	{
-		printf("rr\n");
+		printf("rrr\n");
 		counter++;
 		ft_rev_rot_r(stack_a, stack_b);
 		count[0] -= 1;
@@ -46,20 +46,42 @@ int				make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
 
 t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
 {
-	if ((double)(ret[2] + 1) < param->len[0] / 2.0000)
+	if (!((int)param->len[0] % 2))
 	{
-		while (param->count[0]--)
+		if ((double)(ret[2] + 1) <= param->len[0] / 2.0000)
 		{
-			printf("ra\n");
-			stk = ft_rotate(&stk);
+			while (param->count[0]--)
+			{
+				printf("ra\n");
+				stk = ft_rotate(&stk);
+			}
+		}
+		else
+		{
+			while (param->count[0]--)
+			{
+				printf("rra\n");
+				stk = ft_rev_rot(&stk);
+			}
 		}
 	}
 	else
 	{
-		while (param->count[0]--)
+		if ((double)(ret[2] + 1) <= (param->len[0] / 2.0000) + 1)
 		{
-			printf("rra\n");
-			stk = ft_rev_rot(&stk);
+			while (param->count[0]--)
+			{
+				printf("ra\n");
+				stk = ft_rotate(&stk);
+			}
+		}
+		else
+		{
+			while (param->count[0]--)
+			{
+				printf("rra\n");
+				stk = ft_rev_rot(&stk);
+			}
 		}
 	}
 	return (stk);
@@ -67,20 +89,42 @@ t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
 
 t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, t_param *param)
 {
-	if ((double)(ret[1] + 1) < param->len[1] / 2.0000)
+	if (!((int)param->len[1] % 2))
 	{
-		while (param->count[1]--)
+		if ((double)(ret[1] + 1) <= param->len[1] / 2.0000)
 		{
-			printf("rb\n");
-			stk = ft_rotate(&stk);
+			while (param->count[1]--)
+			{
+				printf("rb\n");
+				stk = ft_rotate(&stk);
+			}
+		}
+		else
+		{
+			while (param->count[1]--)
+			{
+				printf("rrb\n");
+				stk = ft_rev_rot(&stk);
+			}
 		}
 	}
 	else
 	{
-		while (param->count[1]--)
+		if ((double)(ret[1] + 1) <= (param->len[1] / 2.0000) + 1)
 		{
-			printf("rrb\n");
-			stk = ft_rev_rot(&stk);
+			while (param->count[1]--)
+			{
+				printf("rb\n");
+				stk = ft_rotate(&stk);
+			}
+		}
+		else
+		{
+			while (param->count[1]--)
+			{
+				printf("rrb\n");
+				stk = ft_rev_rot(&stk);
+			}
 		}
 	}
 	return (stk);
