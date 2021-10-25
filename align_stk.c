@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:35:29 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/23 16:41:14 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:50:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stack		*align_stack_a(t_stack *stk)
+t_stack	*align_stack_a(t_stack *stk)
 {
 	t_meth		method;
 	int			rot;
@@ -37,7 +37,7 @@ t_stack		*align_stack_a(t_stack *stk)
 	return (stk);
 }
 
-int			is_align(t_stack *stk)
+int	is_align(t_stack *stk)
 {
 	t_stack		*next;
 	int			cur;

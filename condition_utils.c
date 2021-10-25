@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:37:31 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 11:13:40 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:50:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			count_keep(t_stack *stk)
+int	count_keep(t_stack *stk)
 {
 	int		n;
 
@@ -26,7 +26,7 @@ int			count_keep(t_stack *stk)
 	return (n);
 }
 
-int			get_n_rev(t_stack *stk)
+int	get_n_rev(t_stack *stk)
 {
 	int		n_rev;
 

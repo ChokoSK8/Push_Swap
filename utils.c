@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 09:50:51 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 12:30:30 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:06:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void		print_stk(t_stack *stk)
+void	print_stk(t_stack *stk)
 {
 	t_stack		*next;
 
@@ -29,7 +29,7 @@ void		print_stk(t_stack *stk)
 	}
 }
 
-void		clear_keep(t_stack *stk)
+void	clear_keep(t_stack *stk)
 {
 	while (stk)
 	{

@@ -6,24 +6,25 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 10:06:54 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 11:18:09 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:02:35 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stack		*ft_stknew(int content)
+t_stack	*ft_stknew(int content)
 {
 	t_stack		*stknew;
 
-	if (!(stknew = malloc((sizeof(t_stack)))))
+	stknew = malloc(sizeof(t_stack));
+	if (!stknew)
 		return (0);
 	stknew->content = content;
 	stknew->next = NULL;
 	return (stknew);
 }
 
-void		ft_stkadd_back(t_stack **astk, t_stack *new)
+void	ft_stkadd_back(t_stack **astk, t_stack *new)
 {
 	t_stack		*last;
 
@@ -34,7 +35,7 @@ void		ft_stkadd_back(t_stack **astk, t_stack *new)
 		*astk = new;
 }
 
-t_stack		*ft_stklast(t_stack *stk)
+t_stack	*ft_stklast(t_stack *stk)
 {
 	t_stack		*next;
 
@@ -49,7 +50,7 @@ t_stack		*ft_stklast(t_stack *stk)
 	return (stk);
 }
 
-int			ft_stksize(t_stack *stk)
+int	ft_stksize(t_stack *stk)
 {
 	int	lenght;
 
@@ -62,7 +63,7 @@ int			ft_stksize(t_stack *stk)
 	return (lenght);
 }
 
-void		ft_stkremove_last(t_stack **stk)
+void	ft_stkremove_last(t_stack **stk)
 {
 	int			n;
 	t_stack		*next;

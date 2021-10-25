@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:26:20 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:26:31 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:50:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			get_n_rot_sp(t_stack *stk)
+int	get_n_rot_sp(t_stack *stk)
 {
 	int		n_rot;
 
@@ -25,7 +25,7 @@ int			get_n_rot_sp(t_stack *stk)
 	return (n_rot);
 }
 
-int			is_rot_or_rev(t_stack *stk)
+int	is_rot_or_rev(t_stack *stk)
 {
 	int		n_rev;
 	int		n_rot;
@@ -50,14 +50,14 @@ int			is_rot_or_rev(t_stack *stk)
 	return (1);
 }
 
-int			is_swap_needed(t_stack *stk, t_meth *method)
+int	is_swap_needed(t_stack *stk, t_meth *method)
 {
 	t_stack		*tmp;
 	t_meth		toad;
 
-	tmp = duplicate_stk(stk);
 	if (ft_stksize(stk) > 2)
 	{
+		tmp = duplicate_stk(stk);
 		clear_keep(tmp);
 		ft_swap(&tmp);
 		toad = get_method(tmp);
@@ -66,22 +66,22 @@ int			is_swap_needed(t_stack *stk, t_meth *method)
 			method->nbr = toad.nbr;
 			method->name = toad.name;
 			method->from = toad.from;
-			free_tmp(&tmp);
+			ft_stkclear(&tmp);
 			return (1);
 		}
+		ft_stkclear(&tmp);
 	}
-	free_tmp(&tmp);
 	return (0);
 }
 
-int			is_top_disp(t_stack *stk)
+int	is_top_disp(t_stack *stk)
 {
 	if (stk->keep == 0)
 		return (1);
 	return (0);
 }
 
-int			is_threw_away(t_stack *stk)
+int	is_threw_away(t_stack *stk)
 {
 	while (stk)
 	{

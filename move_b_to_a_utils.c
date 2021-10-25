@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:54:40 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/23 16:26:33 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:17:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int				make_rrotate(t_stack **stack_a, t_stack **stack_b, int *count)
+int	make_rrotate(t_stack **stack_a, t_stack **stack_b, int *count)
 {
 	int		counter;
 
@@ -28,7 +28,7 @@ int				make_rrotate(t_stack **stack_a, t_stack **stack_b, int *count)
 	return (counter);
 }
 
-int				make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
+int	make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
 {
 	int		counter;
 
@@ -44,93 +44,33 @@ int				make_rrev_rot(t_stack **stack_a, t_stack **stack_b, int *count)
 	return (counter);
 }
 
-t_stack			*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
+t_stack	*make_rev_or_rot_a(t_stack *stk, int *ret, t_param *param)
 {
 	if (!((int)param->len[0] % 2))
 	{
-		if ((double)(ret[2] + 1) <= param->len[0] / 2.0000)
-		{
-			while (param->count[0]--)
-			{
-				printf("ra\n");
-				stk = ft_rotate(&stk);
-			}
-		}
-		else
-		{
-			while (param->count[0]--)
-			{
-				printf("rra\n");
-				stk = ft_rev_rot(&stk);
-			}
-		}
+		stk = make_ra_rra_pair(stk, ret, param);
 	}
 	else
 	{
-		if ((double)(ret[2] + 1) <= (param->len[0] / 2.0000) + 1)
-		{
-			while (param->count[0]--)
-			{
-				printf("ra\n");
-				stk = ft_rotate(&stk);
-			}
-		}
-		else
-		{
-			while (param->count[0]--)
-			{
-				printf("rra\n");
-				stk = ft_rev_rot(&stk);
-			}
-		}
+		stk = make_ra_rra_odd(stk, ret, param);
 	}
 	return (stk);
 }
 
-t_stack			*make_rev_or_rot_b(t_stack *stk, int *ret, t_param *param)
+t_stack	*make_rev_or_rot_b(t_stack *stk, int *ret, t_param *param)
 {
 	if (!((int)param->len[1] % 2))
 	{
-		if ((double)(ret[1] + 1) <= param->len[1] / 2.0000)
-		{
-			while (param->count[1]--)
-			{
-				printf("rb\n");
-				stk = ft_rotate(&stk);
-			}
-		}
-		else
-		{
-			while (param->count[1]--)
-			{
-				printf("rrb\n");
-				stk = ft_rev_rot(&stk);
-			}
-		}
+		stk = make_rb_rrb_pair(stk, ret, param);
 	}
 	else
 	{
-		if ((double)(ret[1] + 1) <= (param->len[1] / 2.0000) + 1)
-		{
-			while (param->count[1]--)
-			{
-				printf("rb\n");
-				stk = ft_rotate(&stk);
-			}
-		}
-		else
-		{
-			while (param->count[1]--)
-			{
-				printf("rrb\n");
-				stk = ft_rev_rot(&stk);
-			}
-		}
+		stk = make_rb_rrb_odd(stk, ret, param);
 	}
 	return (stk);
 }
 
-t_stack			*make_last_step(t_stack *stk_a, t_stack **stk_b)
+t_stack	*make_last_step(t_stack *stk_a, t_stack **stk_b)
 {
 	printf("pa\n");
 	stk_a = ft_push(stk_b, &stk_a);

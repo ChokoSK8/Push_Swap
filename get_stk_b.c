@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:06:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/23 16:08:50 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:03:03 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stacks		get_stack_b(t_stack *stk)
+t_stacks	get_stack_b(t_stack *stk)
 {
 	t_stack		*stack_b;
 	t_stacks	s;
@@ -37,7 +37,7 @@ t_stacks		get_stack_b(t_stack *stk)
 	return (s);
 }
 
-int				is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method)
+int	is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method)
 {
 	t_stack		*tmp_b;
 	t_stack		*tmp_a;
@@ -56,26 +56,26 @@ int				is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method)
 			method->nbr = toad.nbr;
 			method->name = toad.name;
 			method->from = toad.from;
-			free_tmp(&tmp_a);
-			free_tmp(&tmp_b);
+			ft_stkclear(&tmp_a);
+			ft_stkclear(&tmp_b);
 			return (1);
 		}
-		free_tmp(&tmp_a);
-		free_tmp(&tmp_b);
+		ft_stkclear(&tmp_a);
+		ft_stkclear(&tmp_b);
 	}
 	return (0);
 }
 
-t_stack			*make_push_needed(t_stack *stk, t_stack **stk_b, t_meth method)
+t_stack	*make_push_needed(t_stack *stk, t_stack **stk_b, t_meth method)
 {
-	printf("pb\n");
+	printf("pa\n");
 	stk = ft_push(stk_b, &stk);
 	clear_keep(stk);
 	put_keep(stk, method);
 	return (stk);
 }
 
-int				make_swap(t_stack **stk, t_meth method)
+int	make_swap(t_stack **stk, t_meth method)
 {
 	printf("sa\n");
 	ft_swap(stk);

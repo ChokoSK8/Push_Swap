@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:50:30 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/20 12:05:27 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:54:42 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int		get_n_greater(t_stack *stk, int ret)
+int	get_n_greater(t_stack *stk, int ret)
 {
 	int		n;
 
@@ -29,7 +29,7 @@ int		get_n_greater(t_stack *stk, int ret)
 	return (n);
 }
 
-int		get_n_index(t_stack *stk, int ret)
+int	get_n_index(t_stack *stk, int ret)
 {
 	int		n;
 

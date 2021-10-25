@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:06:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 14:41:52 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:54:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int		ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
+int	ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
 {
 	if (buf[2] == '\n')
 	{
@@ -35,7 +35,7 @@ int		ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
 	return (0);
 }
 
-int		ft_r(t_stack **stack_a, t_stack **stack_b, char *buf)
+int	ft_r(t_stack **stack_a, t_stack **stack_b, char *buf)
 {
 	if (buf[2] == '\n')
 	{
@@ -58,7 +58,7 @@ int		ft_r(t_stack **stack_a, t_stack **stack_b, char *buf)
 	return (0);
 }
 
-int		ft_rr(t_stack **stack_a, t_stack **stack_b, char *buf)
+int	ft_rr(t_stack **stack_a, t_stack **stack_b, char *buf)
 {
 	if (buf[3] == '\n')
 	{

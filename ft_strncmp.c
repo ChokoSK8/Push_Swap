@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 11:38:10 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/20 14:40:50 by abrun            ###   ########.fr       */
+/*   Created: 2020/11/18 12:36:45 by abrun             #+#    #+#             */
+/*   Updated: 2021/10/25 11:52:36 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	unsigned int	counter;
 
-	ptr = (unsigned char *)s;
-	i = -1;
-	while (++i < n)
-		ptr[i] = '\0';
+	if (n == 0)
+		return (0);
+	counter = 0;
+	while (s1[counter] == s2[counter] && counter < n
+		&& s1[counter] && s2[counter])
+		counter++;
+	if (counter == n)
+		return (0);
+	return ((unsigned char)s1[counter] - (unsigned char)s2[counter]);
 }

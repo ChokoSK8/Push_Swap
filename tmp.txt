@@ -1,1 +1,0 @@
-align_stk.c checker checker.c condition_2.c condition.c condition_utils.c fichier2.txt ft_instr_2.c ft_instr.c ft_stack_2.c ft_stack.c get_instr.c get_method.c get_method_utils.c get_stk_a.c get_stk_a_utils.c get_stk_b_2.c get_stk_b_3.c get_stk_b.c get_stk_b_utils.c main_checker.c main_push.c move_b_to_a.c move_b_to_a_utils_2.c move_b_to_a_utils.c utils.c 

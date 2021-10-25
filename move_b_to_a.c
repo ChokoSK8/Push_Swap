@@ -6,24 +6,19 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:51:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/23 16:28:45 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:31:05 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
+t_stack	*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	int			size_b;
-	int			*ret;
+	int			ret[3];
 	t_param		param;
 
-	if (!(ret = malloc(sizeof(int) * 3)))
-		return (0);
 	size_b = ft_stksize(stack_b);
-	print_stk(stack_a);
-	printf("\n--------------------------------------------\n\n");
-	print_stk(stack_b);
 	while (size_b--)
 	{
 		get_choosen(stack_a, stack_b, ret);
@@ -40,22 +35,18 @@ t_stack		*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
 		stack_a = make_rev_or_rot_a(stack_a, ret, &param);
 		stack_b = make_rev_or_rot_b(stack_b, ret, &param);
 		stack_a = make_last_step(stack_a, &stack_b);
-		print_stk(stack_a);
-		printf("\n--------------------------------------------\n\n");
-		print_stk(stack_b);
 	}
-	free(ret);
 	return (stack_a);
 }
 
-int			is_swap_needed_align(t_stack *stk)
+int	is_swap_needed_align(t_stack *stk)
 {
 	if (stk->index < stk->next->index)
 		return (0);
 	return (1);
 }
 
-int			get_moves_b(t_stack *stk, int pos)
+int	get_moves_b(t_stack *stk, int pos)
 {
 	int		n;
 
@@ -73,10 +64,10 @@ int			get_moves_b(t_stack *stk, int pos)
 	{
 		return (pos);
 	}
-	return (n - pos);	
+	return (n - pos);
 }
 
-int			get_moves_a(t_stack *stk, int index, int *pos)
+int	get_moves_a(t_stack *stk, int index, int *pos)
 {
 	int			min;
 	int			n;
@@ -105,7 +96,7 @@ int			get_moves_a(t_stack *stk, int index, int *pos)
 	return (n);
 }
 
-int			*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
+int	*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 {
 	t_stack		*next;
 	int			n[3];
@@ -121,7 +112,7 @@ int			*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 		n[1] = get_moves_a(stack_a, next->index, &pos[1]);
 		n[2] = n[0] + n[1];
 		if (is_same_command(stack_a, stack_b, pos[0], pos[1]))
-			n[2] = MAX(n[0], n[1]);
+			n[2] = ft_max(n[0], n[1]);
 		if (ret[0] > n[2])
 		{
 			ret[0] = n[2];
@@ -131,6 +122,5 @@ int			*get_choosen(t_stack *stack_a, t_stack *stack_b, int *ret)
 		next = next->next;
 		pos[0] += 1;
 	}
-//	printf("n_moves : %d\npos_a : %d\npos_b : %d\n", ret[0], ret[2], ret[1]);
 	return (ret);
 }

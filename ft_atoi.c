@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 09:21:54 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/23 09:21:56 by abrun            ###   ########.fr       */
+/*   Created: 2020/11/18 11:33:27 by abrun             #+#    #+#             */
+/*   Updated: 2021/10/25 17:51:51 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_atoi(const char *str)
 {
-	int	lenght;
+	long int		res;
+	unsigned int	n_minus;
 
-	lenght = 0;
-	while (lst)
+	res = 0;
+	n_minus = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		lenght++;
-		lst = lst->next;
+		if (*str == '-')
+			n_minus++;
+		str++;
 	}
-	return (lenght);
+	while (ft_isdigit(*str))
+	{
+		res *= 10;
+		res += *str - '0';
+		str++;
+	}
+	if (n_minus)
+		res *= -1;
+	return (res);
 }

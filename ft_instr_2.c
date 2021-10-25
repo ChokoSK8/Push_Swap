@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:15:42 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:30:46 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:52:34 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void		ft_swap(t_stack **stk)
+void	ft_swap(t_stack **stk)
 {
 	t_stack	*tmp;
 	int		n;
@@ -27,21 +27,21 @@ void		ft_swap(t_stack **stk)
 	}
 }
 
-int			ft_ss(t_stack *stack_a, t_stack *stack_b)
+int	ft_ss(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_swap(&stack_a);
 	ft_swap(&stack_b);
 	return (1);
 }
 
-int			ft_rev_rot_r(t_stack **stack_a, t_stack **stack_b)
+int	ft_rev_rot_r(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = ft_rev_rot(stack_a);
 	*stack_b = ft_rev_rot(stack_b);
 	return (1);
 }
 
-int			ft_rotate_r(t_stack **stack_a, t_stack **stack_b)
+int	ft_rotate_r(t_stack **stack_a, t_stack **stack_b)
 {
 	*stack_a = ft_rotate(stack_a);
 	*stack_b = ft_rotate(stack_b);

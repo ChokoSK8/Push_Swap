@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 09:58:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 14:08:36 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:55:07 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stack		*get_stack_a(char **av, int ac)
+t_stack	*get_stack_a(char **av, int ac)
 {
 	t_stack		*stack;
 	int			i;
@@ -31,7 +31,7 @@ t_stack		*get_stack_a(char **av, int ac)
 	return (first);
 }
 
-void		put_index(t_stack *stk)
+void	put_index(t_stack *stk)
 {
 	int			index;
 	int			min;
@@ -54,7 +54,7 @@ void		put_index(t_stack *stk)
 	}
 }
 
-void		put_keep(t_stack *stk, t_meth method)
+void	put_keep(t_stack *stk, t_meth method)
 {
 	while (method.from != stk->index)
 		stk = stk->next;

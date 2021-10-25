@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_stkclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 09:21:26 by abrun             #+#    #+#             */
-/*   Updated: 2020/11/25 09:12:21 by abrun            ###   ########.fr       */
+/*   Created: 2020/11/23 09:22:36 by abrun             #+#    #+#             */
+/*   Updated: 2021/10/25 12:13:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_stkclear(t_stack **stk)
 {
-	new->next = *alst;
-	*alst = new;
+	t_stack	*next;
+
+	while (*stk)
+	{
+		next = (*stk)->next;
+		free(*stk);
+		*stk = next;
+	}
+	free(*stk);
 }

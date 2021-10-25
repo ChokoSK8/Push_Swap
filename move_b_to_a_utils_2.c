@@ -6,13 +6,97 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:40:17 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:05:30 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:24:16 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			is_same_command(t_stack *stk_a, t_stack *stk_b,
+t_stack	*make_ra_rra_pair(t_stack *stk, int *ret, t_param *param)
+{
+	if ((double)(ret[2] + 1) <= param->len[0] / 2.0000)
+	{
+		while (param->count[0]--)
+		{
+			printf("ra\n");
+			stk = ft_rotate(&stk);
+		}
+	}
+	else
+	{
+		while (param->count[0]--)
+		{
+			printf("rra\n");
+			stk = ft_rev_rot(&stk);
+		}
+	}
+	return (stk);
+}
+
+t_stack	*make_ra_rra_odd(t_stack *stk, int *ret, t_param *param)
+{
+	if ((double)(ret[2] + 1) <= (param->len[0] / 2.0000) + 1)
+	{
+		while (param->count[0]--)
+		{
+			printf("ra\n");
+			stk = ft_rotate(&stk);
+		}
+	}
+	else
+	{
+		while (param->count[0]--)
+		{
+			printf("rra\n");
+			stk = ft_rev_rot(&stk);
+		}
+	}
+	return (stk);
+}
+
+t_stack	*make_rb_rrb_odd(t_stack *stk, int *ret, t_param *param)
+{
+	if ((double)(ret[1] + 1) <= (param->len[1] / 2.0000) + 1)
+	{
+		while (param->count[1]--)
+		{
+			printf("rb\n");
+			stk = ft_rotate(&stk);
+		}
+	}
+	else
+	{
+		while (param->count[1]--)
+		{
+			printf("rrb\n");
+			stk = ft_rev_rot(&stk);
+		}
+	}
+	return (stk);
+}
+
+t_stack	*make_rb_rrb_pair(t_stack *stk, int *ret, t_param *param)
+{
+	if ((double)(ret[1] + 1) <= param->len[1] / 2.0000)
+	{
+		while (param->count[1]--)
+		{
+			printf("rb\n");
+			stk = ft_rotate(&stk);
+		}
+	}
+	else
+	{
+		while (param->count[1]--)
+		{
+			printf("rrb\n");
+			stk = ft_rev_rot(&stk);
+		}
+	}
+	return (stk);
+}
+
+int	is_same_command(t_stack *stk_a, t_stack *stk_b,
 		int pos_b, int pos_a)
 {
 	int		len_a;
@@ -22,34 +106,8 @@ int			is_same_command(t_stack *stk_a, t_stack *stk_b,
 
 	len_a = ft_stksize(stk_a);
 	len_b = ft_stksize(stk_b);
-	if (!(len_a % 2))
-	{
-		if (len_a < 2 || (double)(pos_a + 1) <= (double)len_a / 2.000)
-			rot_a = 0;
-		else
-			rot_a = 1;
-	}
-	else
-	{
-		if (len_a < 2 || (double)(pos_a + 1) <= ((double)len_a / 2.000) + 1)
-			rot_a = 0;
-		else
-			rot_a = 1;
-	}
-	if (!(len_b % 2))
-	{	
-		if (len_b < 2 || (double)(pos_b + 1) <= (double)len_b / 2.000)
-			rot_b = 0;
-		else
-			rot_b = 1;
-	}
-	else
-	{	
-		if (len_b < 2 || (double)(pos_b + 1) <= ((double)len_b / 2.000) + 1)
-			rot_b = 0;
-		else
-			rot_b = 1;
-	}
+	rot_a = get_rot(pos_a, len_a);
+	rot_b = get_rot(pos_b, len_b);
 	if (rot_a == rot_b)
 		return (1);
 	return (0);

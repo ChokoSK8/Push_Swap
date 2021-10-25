@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:35:13 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/21 11:56:06 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:50:03 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int		check_stacks(t_stack *stk_a)
+int	check_stacks(t_stack *stk_a)
 {
 	t_stack		*next;
 
@@ -27,7 +27,7 @@ int		check_stacks(t_stack *stk_a)
 	return (1);
 }
 
-int		start_checker(t_stack *stack_a)
+int	start_checker(t_stack *stack_a)
 {
 	char		buf[5];
 	t_stack		*stack_b;
@@ -55,7 +55,7 @@ int		start_checker(t_stack *stack_a)
 	return (1);
 }
 
-int		do_change(t_stack **stack_a, t_stack **stack_b, char *buf)
+int	do_change(t_stack **stack_a, t_stack **stack_b, char *buf)
 {
 	if (*buf == 's')
 		return (ft_s(*stack_a, *stack_b, buf));

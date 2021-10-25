@@ -6,21 +6,17 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 15:57:03 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:34:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_H
-
-#define PUSH_H
-
+#ifndef PUSH_H
+# define PUSH_H
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include "Libft/libft.h"
-#define MAX(x, y)	x < y ? y : x;
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int					content;
 	int					index;
@@ -28,19 +24,19 @@ typedef struct	s_stack
 	int					keep;
 }				t_stack;
 
-typedef struct	s_param
+typedef struct s_param
 {
 	double		len[2];
 	int			count[2];
 }				t_param;
 
-typedef struct	s_stacks
+typedef struct s_stacks
 {
 	t_stack		*a;
 	t_stack		*b;
 }				t_stacks;
 
-typedef struct	s_meth
+typedef struct s_meth
 {
 	char	*name;
 	int		nbr;
@@ -189,11 +185,34 @@ int				start_checker(t_stack *stk);
 
 int				make_swap_2(t_stack **stk_a, t_meth method, t_stack **stk_b);
 
-int				make_rrev_rot_2(t_stack **stk_a, t_stack **stk_b, t_meth *method);
+int				make_rrev_rot_2(t_stack **stk_a, t_stack **stk_b,
+					t_meth *method);
 
 int				is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method);
 
-t_stack			*make_push_needed(t_stack *stk_a, t_stack **stk_b, t_meth method);
+t_stack			*make_push_needed(t_stack *stk_a, t_stack **stk_b,
+					t_meth method);
 
-int				is_same_command(t_stack *stack_a, t_stack *stack_b, int pos, int pos_a);
+int				is_same_command(t_stack *stack_a, t_stack *stack_b,
+					int pos, int pos_a);
+
+int				ft_isdigit(char c);
+
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+
+int				ft_atoi(const char *str);
+
+void			ft_stkclear(t_stack **stk);
+
+t_stack			*make_ra_rra_pair(t_stack *stk, int *ret, t_param *param);
+
+t_stack			*make_ra_rra_odd(t_stack *stk, int *ret, t_param *param);
+
+t_stack			*make_rb_rrb_pair(t_stack *stk, int *ret, t_param *param);
+
+t_stack			*make_rb_rrb_odd(t_stack *stk, int *ret, t_param *param);
+
+int				get_rot(int pos, int len);
+
+int				ft_max(int a, int b);
 #endif 

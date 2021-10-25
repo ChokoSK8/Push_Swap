@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:10:12 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 14:10:19 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:56:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			get_min(t_stack *stk, int min)
+int	get_min(t_stack *stk, int min)
 {
 	int		max;
 
@@ -26,7 +26,7 @@ int			get_min(t_stack *stk, int min)
 	return (max);
 }
 
-t_stack		*put_keep_great(t_stack *stk)
+t_stack	*put_keep_great(t_stack *stk)
 {
 	int		ret;
 
@@ -43,7 +43,7 @@ t_stack		*put_keep_great(t_stack *stk)
 	return (stk);
 }
 
-t_stack		*put_keep_index(t_stack *stk)
+t_stack	*put_keep_index(t_stack *stk)
 {
 	int		ret;
 

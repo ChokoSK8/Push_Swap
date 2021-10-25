@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:02:24 by abrun             #+#    #+#             */
-/*   Updated: 2021/04/20 12:26:25 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:54:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_meth		get_method(t_stack *stk)
+t_meth	get_method(t_stack *stk)
 {
 	t_meth		index;
 	t_meth		great;
@@ -34,7 +34,7 @@ t_meth		get_method(t_stack *stk)
 		return (index);
 }
 
-t_meth		get_greater_head(t_stack *stack)
+t_meth	get_greater_head(t_stack *stack)
 {
 	int			n;
 	int			head;
@@ -57,7 +57,7 @@ t_meth		get_greater_head(t_stack *stack)
 	return (great);
 }
 
-t_meth		get_index_head(t_stack *stk)
+t_meth	get_index_head(t_stack *stk)
 {
 	int			head;
 	t_meth		index;

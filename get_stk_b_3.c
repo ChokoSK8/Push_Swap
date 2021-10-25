@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:21:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/23 16:09:24 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 18:04:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int			make_rrotate_2(t_stack **stack_a, t_stack **stack_b, t_meth *method)
+int	make_rrotate_2(t_stack **stack_a, t_stack **stack_b, t_meth *method)
 {
 	printf("rr\n");
 	ft_rotate_r(stack_a, stack_b);
@@ -25,7 +25,7 @@ int			make_rrotate_2(t_stack **stack_a, t_stack **stack_b, t_meth *method)
 	return (1);
 }
 
-int			make_rrev_rot_2(t_stack **stack_a, t_stack **stack_b,
+int	make_rrev_rot_2(t_stack **stack_a, t_stack **stack_b,
 		t_meth *method)
 {
 	if (is_rot_or_rev(*stack_a))
@@ -47,7 +47,7 @@ int			make_rrev_rot_2(t_stack **stack_a, t_stack **stack_b,
 	return (1);
 }
 
-t_stack		*make_rot(t_stack *stk, t_meth *method)
+t_stack	*make_rot(t_stack *stk, t_meth *method)
 {
 	printf("ra\n");
 	stk = ft_rotate(&stk);
@@ -60,7 +60,7 @@ t_stack		*make_rot(t_stack *stk, t_meth *method)
 	return (stk);
 }
 
-int			is_swap_needed_b(t_stack *stk)
+int	is_swap_needed_b(t_stack *stk)
 {
 	int		before;
 
@@ -74,14 +74,15 @@ int			is_swap_needed_b(t_stack *stk)
 	return (0);
 }
 
-int			make_swap_2(t_stack **stk, t_meth method, t_stack **stk_b)
+int	make_swap_2(t_stack **stk, t_meth method, t_stack **stk_b)
 {
 	int		sb;
 
 	sb = 0;
 	if (*stk_b)
 	{
-		if ((sb = is_swap_needed_b(*stk_b)))
+		sb = is_swap_needed_b(*stk_b);
+		if (sb)
 		{
 			printf("ss\n");
 			ft_swap(stk);

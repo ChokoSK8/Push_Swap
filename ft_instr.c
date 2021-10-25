@@ -6,13 +6,13 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:02:24 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/22 19:30:35 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/25 17:52:05 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_stack		*ft_rev_rot(t_stack **stk)
+t_stack	*ft_rev_rot(t_stack **stk)
 {
 	t_stack		*tmp;
 	int			n;
@@ -27,7 +27,7 @@ t_stack		*ft_rev_rot(t_stack **stk)
 	return (*stk);
 }
 
-t_stack		*ft_push(t_stack **put, t_stack **rec)
+t_stack	*ft_push(t_stack **put, t_stack **rec)
 {
 	t_stack	*tmp;
 
@@ -37,7 +37,7 @@ t_stack		*ft_push(t_stack **put, t_stack **rec)
 	return (*rec);
 }
 
-t_stack		*ft_rotate(t_stack **stk)
+t_stack	*ft_rotate(t_stack **stk)
 {
 	t_stack		*tmp;
 	t_stack		*s;
