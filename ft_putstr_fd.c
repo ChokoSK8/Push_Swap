@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 09:50:51 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/26 15:56:19 by abrun            ###   ########.fr       */
+/*   Created: 2020/11/18 12:08:45 by abrun             #+#    #+#             */
+/*   Updated: 2021/10/26 16:00:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	print_stk(t_stack *stk)
+size_t	ft_strlen(char *s)
 {
-	t_stack		*next;
+	size_t	len;
 
-	next = stk;
-	while (next)
-	{
-		if (next->content >= 0)
-			printf("      %d [%d] --> %d\n", next->content,
-				next->index, next->keep);
-		else
-			printf("     %d [%d] --> %d\n", next->content,
-				next->index, next->keep);
-		next = next->next;
-	}
-}
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}		
 
-void	clear_keep(t_stack *stk)
+void	ft_putstr_fd(int fd, char *s)
 {
-	while (stk)
-	{
-		stk->keep = 0;
-		stk = stk->next;
-	}
+	write(fd, s, ft_strlen(s));
 }

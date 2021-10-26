@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:21:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:04:13 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 15:48:32 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	make_rrotate_2(t_stack **stack_a, t_stack **stack_b, t_meth *method)
 {
-	printf("rr\n");
+	ft_putstr_fd(1, "rr\n");
 	ft_rotate_r(stack_a, stack_b);
 	if (is_more_staying(*stack_a))
 	{
@@ -30,12 +30,12 @@ int	make_rrev_rot_2(t_stack **stack_a, t_stack **stack_b,
 {
 	if (is_rot_or_rev(*stack_a))
 	{
-		printf("rr\n");
+		ft_putstr_fd(1, "rr\n");
 		ft_rotate_r(stack_a, stack_b);
 	}
 	else
 	{
-		printf("rrr\n");
+		ft_putstr_fd(1, "rrr\n");
 		ft_rev_rot_r(stack_a, stack_b);
 	}
 	if (is_more_staying(*stack_a))
@@ -49,7 +49,7 @@ int	make_rrev_rot_2(t_stack **stack_a, t_stack **stack_b,
 
 t_stack	*make_rot(t_stack *stk, t_meth *method)
 {
-	printf("ra\n");
+	ft_putstr_fd(1, "ra\n");
 	stk = ft_rotate(&stk);
 	if (is_more_staying(stk))
 	{
@@ -60,43 +60,12 @@ t_stack	*make_rot(t_stack *stk, t_meth *method)
 	return (stk);
 }
 
-int	is_swap_needed_b(t_stack *stk)
-{
-	int		before;
-
-	while (stk->next)
-	{
-		before = stk->content;
-		stk = stk->next;
-	}
-	if (stk->content < before)
-		return (1);
-	return (0);
-}
-
 int	make_swap_2(t_stack **stk, t_meth method, t_stack **stk_b)
 {
-	int		sb;
-
-	sb = 0;
-	if (*stk_b)
-	{
-		sb = is_swap_needed_b(*stk_b);
-		if (sb)
-		{
-			printf("ss\n");
-			ft_swap(stk);
-			clear_keep(*stk);
-			put_keep(*stk, method);
-			ft_swap(stk_b);
-		}
-	}
-	if (!sb)
-	{
-		printf("sa\n");
-		ft_swap(stk);
-		clear_keep(*stk);
-		put_keep(*stk, method);
-	}
+	(void)stk_b;
+	ft_putstr_fd(1, "sa\n");
+	ft_swap(stk);
+	clear_keep(*stk);
+	put_keep(*stk, method);
 	return (1);
 }

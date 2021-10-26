@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:51:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:31:05 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 19:07:52 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ t_stack	*move_b_to_a(t_stack *stack_a, t_stack *stack_b)
 		param.len[1] = ft_stksize(stack_b);
 		param.count[0] = get_moves_b(stack_a, ret[2]);
 		param.count[1] = get_moves_b(stack_b, ret[1]);
-		if ((double)(ret[2] + 1) < param.len[0] / 2.0000
-			&& (double)(ret[1] + 1) < param.len[1] / 2.0000)
+		if (is_rrotate_ok(ret, param))
 			make_rrotate(&stack_a, &stack_b, param.count);
-		else if ((double)(ret[2] + 1) >= param.len[0] / 2.0000
-			&& (double)(ret[1] + 1) >= param.len[1] / 2.0000)
+		else if (is_rrev_ok(ret, param))
 			make_rrev_rot(&stack_a, &stack_b, param.count);
 		stack_a = make_rev_or_rot_a(stack_a, ret, &param);
 		stack_b = make_rev_or_rot_b(stack_b, ret, &param);

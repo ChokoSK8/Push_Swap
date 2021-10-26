@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:20:04 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:01:30 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 15:55:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack	*make_rot_or_rev_index(t_stack *stk, int index)
 		{
 			while (n_rev--)
 			{
-				printf("rrb\n");
+				ft_putstr_fd(1, "rrb\n");
 				stk = ft_rev_rot(&stk);
 			}
 		}
@@ -46,7 +46,7 @@ t_stack	*make_rot_or_rev_index(t_stack *stk, int index)
 		{
 			while (n_rev++ < len)
 			{
-				printf("rb\n");
+				ft_putstr_fd(1, "rb\n");
 				stk = ft_rotate(&stk);
 			}
 		}
@@ -84,7 +84,7 @@ t_stack	*move_stk_b(t_stack *stk_b, t_stack *stk)
 
 t_stack	*make_push(t_stack **stk, t_stack *stk_b)
 {
-	printf("pb\n");
+	ft_putstr_fd(1, "pb\n");
 	stk_b = ft_push(stk, &stk_b);
 	return (stk_b);
 }
@@ -93,12 +93,12 @@ t_stack	*make_rot_or_rev(t_stack *stk, t_meth *method)
 {
 	if (is_rot_or_rev(stk))
 	{
-		printf("ra\n");
+		ft_putstr_fd(1, "ra\n");
 		stk = ft_rotate(&stk);
 	}
 	else
 	{
-		printf("rra\n");
+		ft_putstr_fd(1, "rra\n");
 		stk = ft_rev_rot(&stk);
 	}
 	if (is_more_staying(stk))

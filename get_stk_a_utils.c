@@ -6,21 +6,21 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:10:12 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 17:56:13 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 15:25:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int	get_min(t_stack *stk, int min)
+long long	get_min(t_stack *stk, long long min)
 {
-	int		max;
+	long long	max;
 
 	max = 2147483647;
 	while (stk)
 	{
-		if (stk->content <= max && stk->content > min)
-			max = stk->content;
+		if ((long long)stk->content <= max && (long long)stk->content > min)
+			max = (long long)stk->content;
 		stk = stk->next;
 	}
 	return (max);

@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:35:29 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 17:50:11 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 19:07:33 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ t_stack	*align_stack_a(t_stack *stk)
 		put_keep(stk, method);
 		if (!rot)
 		{
-			printf("ra\n");
+			ft_putstr_fd(1, "ra\n");
 			stk = ft_rotate(&stk);
 		}
 		else
 		{
-			printf("rra\n");
+			ft_putstr_fd(1, "rra\n");
 			stk = ft_rev_rot(&stk);
 		}
 	}

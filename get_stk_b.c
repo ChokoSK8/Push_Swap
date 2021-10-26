@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:06:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:03:03 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 17:11:08 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method)
 
 t_stack	*make_push_needed(t_stack *stk, t_stack **stk_b, t_meth method)
 {
-	printf("pa\n");
+	ft_putstr_fd(1, "pa\n");
 	stk = ft_push(stk_b, &stk);
 	clear_keep(stk);
 	put_keep(stk, method);
@@ -77,7 +77,7 @@ t_stack	*make_push_needed(t_stack *stk, t_stack **stk_b, t_meth method)
 
 int	make_swap(t_stack **stk, t_meth method)
 {
-	printf("sa\n");
+	ft_putstr_fd(1, "sa\n");
 	ft_swap(stk);
 	clear_keep(*stk);
 	put_keep(*stk, method);

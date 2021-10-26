@@ -36,22 +36,22 @@ int	start_checker(t_stack *stack_a)
 	stack_b = NULL;
 	while (*buf != '\n')
 	{
-		printf("A :\n");
+		ft_putstr_fd(1"A :\n");
 		print_stk(stack_a);
-		printf("B :\n");
+		ft_putstr_fd(1"B :\n");
 		print_stk(stack_b);
 		if (!do_change(&stack_a, &stack_b, buf))
 		{
-			printf("Mauvaise instruction !\n");
+			ft_putstr_fd(1"Mauvaise instruction !\n");
 			return (0);
 		}
 		clear_buf(buf);
 		read(1, buf, 4);
 	}
 	if (!stack_b && check_stacks(stack_a))
-		printf("OK\n");
+		ft_putstr_fd(1"OK\n");
 	else
-		printf("KO\n");
+		ft_putstr_fd(1"KO\n");
 	return (1);
 }
 

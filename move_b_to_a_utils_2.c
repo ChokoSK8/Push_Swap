@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:40:17 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:24:16 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 19:02:14 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*make_ra_rra_pair(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[0]--)
 		{
-			printf("ra\n");
+			ft_putstr_fd(1, "ra\n");
 			stk = ft_rotate(&stk);
 		}
 	}
@@ -26,7 +26,7 @@ t_stack	*make_ra_rra_pair(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[0]--)
 		{
-			printf("rra\n");
+			ft_putstr_fd(1, "rra\n");
 			stk = ft_rev_rot(&stk);
 		}
 	}
@@ -39,7 +39,7 @@ t_stack	*make_ra_rra_odd(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[0]--)
 		{
-			printf("ra\n");
+			ft_putstr_fd(1, "ra\n");
 			stk = ft_rotate(&stk);
 		}
 	}
@@ -47,7 +47,7 @@ t_stack	*make_ra_rra_odd(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[0]--)
 		{
-			printf("rra\n");
+			ft_putstr_fd(1, "rra\n");
 			stk = ft_rev_rot(&stk);
 		}
 	}
@@ -60,7 +60,7 @@ t_stack	*make_rb_rrb_odd(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[1]--)
 		{
-			printf("rb\n");
+			ft_putstr_fd(1, "rb\n");
 			stk = ft_rotate(&stk);
 		}
 	}
@@ -68,7 +68,7 @@ t_stack	*make_rb_rrb_odd(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[1]--)
 		{
-			printf("rrb\n");
+			ft_putstr_fd(1, "rrb\n");
 			stk = ft_rev_rot(&stk);
 		}
 	}
@@ -81,7 +81,7 @@ t_stack	*make_rb_rrb_pair(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[1]--)
 		{
-			printf("rb\n");
+			ft_putstr_fd(1, "rb\n");
 			stk = ft_rotate(&stk);
 		}
 	}
@@ -89,7 +89,7 @@ t_stack	*make_rb_rrb_pair(t_stack *stk, int *ret, t_param *param)
 	{
 		while (param->count[1]--)
 		{
-			printf("rrb\n");
+			ft_putstr_fd(1, "rrb\n");
 			stk = ft_rev_rot(&stk);
 		}
 	}

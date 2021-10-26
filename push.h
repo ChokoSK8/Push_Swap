@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 18:34:13 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/26 19:02:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -155,7 +156,7 @@ int				get_n_greater(t_stack *stk, int ret);
 
 int				get_n_index(t_stack *stk, int ret);
 
-int				get_min(t_stack *stk, int max);
+long long		get_min(t_stack *stk, long long max);
 
 int				get_max(t_stack *stk, int min);
 
@@ -215,4 +216,32 @@ t_stack			*make_rb_rrb_odd(t_stack *stk, int *ret, t_param *param);
 int				get_rot(int pos, int len);
 
 int				ft_max(int a, int b);
+
+t_stacks		get_stack_b_5(t_stack *stk_a);
+
+t_stack			*sort_stk_a_3(t_stack *stk);
+
+int				is_sorted_3(t_stack *stk);
+
+int				is_doublon(t_stack *stk);
+
+void			ft_putstr_fd(int fd, char *str);
+
+t_stack			*create_stack(char *av, t_stack *first);
+
+char			**ft_split(char *s, char c);
+
+void			free_matc(char **matc);
+
+int				check_av(char *av);
+
+int				ft_is_sign_digit(char c, char d);
+
+int				check_digit_int(char *digit);
+
+size_t			ft_strlen(char *s);
+
+int				is_rrev_ok(int *ret, t_param param);
+
+int				is_rrotate_ok(int *ret, t_param param);
 #endif 
