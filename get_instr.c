@@ -6,29 +6,29 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 15:06:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 17:54:13 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/27 13:02:09 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int	ft_s(t_stack *stack_a, t_stack *stack_b, char *buf)
+int	ft_s(t_stack **stack_a, t_stack **stack_b, char *buf)
 {
 	if (buf[2] == '\n')
 	{
 		if (buf[1] == 'a')
 		{
-			ft_swap(&stack_a);
+			ft_swap(stack_a);
 			return (1);
 		}
 		else if (buf[1] == 'b')
 		{
-			ft_swap(&stack_b);
+			ft_swap(stack_b);
 			return (1);
 		}
 		else if (buf[1] == 's')
 		{
-			ft_ss(stack_a, stack_b);
+			ft_ss(*stack_a, *stack_b);
 			return (1);
 		}
 	}

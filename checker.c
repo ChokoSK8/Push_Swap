@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:35:13 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 17:50:03 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/27 13:02:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,30 @@ int	start_checker(t_stack *stack_a)
 
 	read(1, buf, 4);
 	stack_b = NULL;
-	while (*buf != '\n')
+	while (*buf != 0)
 	{
-		ft_putstr_fd(1"A :\n");
-		print_stk(stack_a);
-		ft_putstr_fd(1"B :\n");
-		print_stk(stack_b);
 		if (!do_change(&stack_a, &stack_b, buf))
 		{
-			ft_putstr_fd(1"Mauvaise instruction !\n");
+			ft_putstr_fd(1, "Mauvaise instruction !\n");
 			return (0);
 		}
+	//	print_stk(stack_a);
+	//	printf("\n---------------------------------\n\n");
+	//	print_stk(stack_b);
 		clear_buf(buf);
 		read(1, buf, 4);
 	}
 	if (!stack_b && check_stacks(stack_a))
-		ft_putstr_fd(1"OK\n");
+		ft_putstr_fd(1, "OK\n");
 	else
-		ft_putstr_fd(1"KO\n");
+		ft_putstr_fd(1, "KO\n");
 	return (1);
 }
 
 int	do_change(t_stack **stack_a, t_stack **stack_b, char *buf)
 {
 	if (*buf == 's')
-		return (ft_s(*stack_a, *stack_b, buf));
+		return (ft_s(stack_a, stack_b, buf));
 	else if (*buf == 'p' && buf[2] == '\n')
 	{
 		if (buf[1] == 'a')
