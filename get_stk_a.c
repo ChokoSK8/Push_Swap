@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 09:58:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/26 19:12:20 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/27 14:42:17 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_stack	*create_stack(char *av, t_stack *first)
 	counter = 0;
 	while (split[counter])
 	{
-		n = ft_atoi(*split);
+		n = ft_atoi(split[counter]);
 		if (!check_digit_int(split[counter++]))
 		{
 			ft_stkclear(&first);

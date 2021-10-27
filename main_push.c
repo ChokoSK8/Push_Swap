@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:40:37 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 13:00:53 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/27 14:45:04 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	t_stacks	s;
 
 	if (ac < 2)
-		return (1);
+		return (0);
 	stack_a = get_stack_a(av, ac);
 	if (!stack_a || is_doublon(stack_a))
 		return (1);

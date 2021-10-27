@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:35:13 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 13:02:06 by abrun            ###   ########.fr       */
+/*   Updated: 2021/10/27 14:47:35 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ int	start_checker(t_stack *stack_a)
 			ft_putstr_fd(1, "Mauvaise instruction !\n");
 			return (0);
 		}
-	//	print_stk(stack_a);
-	//	printf("\n---------------------------------\n\n");
-	//	print_stk(stack_b);
 		clear_buf(buf);
 		read(1, buf, 4);
 	}
