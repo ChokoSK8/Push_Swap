@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:58:21 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 12:57:05 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/05 14:02:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,7 +235,7 @@ void			free_matc(char **matc);
 
 int				check_av(char *av);
 
-int				ft_is_sign_digit(char c, char d);
+int				ft_is_sign_digit(char *s, int c);
 
 int				check_digit_int(char *digit);
 
@@ -244,4 +244,6 @@ size_t			ft_strlen(char *s);
 int				is_rrev_ok(int *ret, t_param param);
 
 int				is_rrotate_ok(int *ret, t_param param);
+
+t_stack			*exit_get_stk_a(t_stack *first, char **split);
 #endif 

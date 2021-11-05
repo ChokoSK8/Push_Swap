@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:33:04 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 14:43:58 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/05 14:20:01 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,14 @@ int	check_av(char *av)
 	int	counter;
 
 	counter = 0;
-	while (av[counter] && av[counter + 1])
+	while (av[counter])
 	{
-		if (ft_is_sign_digit(av[counter], av[counter + 1]) || av[counter] == 32)
+		if (av[counter] == 32 || ft_is_sign_digit(av, counter))
 			counter++;
 		else
 			return (0);
 	}
-	if (ft_isdigit(av[counter]) || av[counter] == 32)
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	is_doublon(t_stack *stk)

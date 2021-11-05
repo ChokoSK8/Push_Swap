@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 10:06:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/26 17:11:08 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 15:02:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,23 @@ t_stacks	get_stack_b(t_stack *stk)
 
 int	is_push_needed(t_stack *stk_a, t_stack *stk_b, t_meth *method)
 {
-	t_stack		*tmp_b;
-	t_stack		*tmp_a;
 	t_meth		toad;
 
 	if (stk_b)
 	{
-		tmp_b = duplicate_stk(stk_b);
-		tmp_a = duplicate_stk(stk_a);
-		clear_keep(tmp_a);
-		clear_keep(tmp_b);
-		tmp_a = ft_push(&tmp_b, &tmp_a);
-		toad = get_method(tmp_a);
+		clear_keep(stk_a);
+		stk_a = ft_push(&stk_b, &stk_a);
+		toad = get_method(stk_a);
+		stk_b = ft_push(&stk_a, &stk_b);
+		clear_keep(stk_a);
+		put_keep(stk_a, *method);
 		if (toad.nbr > method->nbr)
 		{
 			method->nbr = toad.nbr;
 			method->name = toad.name;
 			method->from = toad.from;
-			ft_stkclear(&tmp_a);
-			ft_stkclear(&tmp_b);
 			return (1);
 		}
-		ft_stkclear(&tmp_a);
-		ft_stkclear(&tmp_b);
 	}
 	return (0);
 }

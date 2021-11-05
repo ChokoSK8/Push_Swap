@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 11:26:20 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/26 13:48:53 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 15:08:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,23 @@ int	is_rot_or_rev(t_stack *stk)
 
 int	is_swap_needed(t_stack *stk, t_meth *method)
 {
-	t_stack		*tmp;
 	t_meth		toad;
 
 	if (ft_stksize(stk) > 2)
 	{
-		tmp = duplicate_stk(stk);
-		clear_keep(tmp);
-		ft_swap(&tmp);
-		toad = get_method(tmp);
+		clear_keep(stk);
+		ft_swap(&stk);
+		toad = get_method(stk);
+		ft_swap(&stk);
+		clear_keep(stk);
+		put_keep(stk, *method);
 		if (toad.nbr > method->nbr)
 		{
 			method->nbr = toad.nbr;
 			method->name = toad.name;
 			method->from = toad.from;
-			ft_stkclear(&tmp);
 			return (1);
 		}
-		ft_stkclear(&tmp);
 	}
 	return (0);
 }

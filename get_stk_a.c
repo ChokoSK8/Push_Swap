@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 09:58:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/27 14:51:28 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/05 14:19:16 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,23 @@ t_stack	*create_stack(char *av, t_stack *first)
 	{
 		n = ft_atoi(split[counter]);
 		if (!check_digit_int(split[counter++]))
-		{
-			ft_stkclear(&first);
-			free_matc(split);
-			ft_putstr_fd(2, "Error\n");
-			return (0);
-		}
+			return (exit_get_stk_a(first, split));
 		stk = ft_stknew((int)n);
 		if (!stk)
-			return (0);
+			return (exit_get_stk_a(first, split));
 		ft_stkadd_back(&first, stk);
 		stk->keep = 0;
 	}
 	free_matc(split);
 	return (first);
+}
+
+t_stack	*exit_get_stk_a(t_stack *first, char **split)
+{
+	ft_stkclear(&first);
+	free_matc(split);
+	ft_putstr_fd(2, "Error\n");
+	return (0);
 }
 
 void	put_index(t_stack *stk)

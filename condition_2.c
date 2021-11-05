@@ -6,7 +6,7 @@
 /*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:11:59 by abrun             #+#    #+#             */
-/*   Updated: 2021/10/25 17:50:44 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/02 15:02:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,15 @@ int	is_rot_or_rev_align(t_stack *stk)
 
 int	is_more_staying(t_stack *stk)
 {
-	t_stack		*tmp;
 	t_meth		method;
 	int			n_stk;
 	int			n_tmp;
 
-	tmp = duplicate_stk(stk);
-	method = get_method(stk);
-	clear_keep(tmp);
-	put_keep(tmp, method);
 	n_stk = count_keep(stk);
-	n_tmp = count_keep(tmp);
-	ft_stkclear(&tmp);
+	method = get_method(stk);
+	clear_keep(stk);
+	put_keep(stk, method);
+	n_tmp = count_keep(stk);
 	if (n_stk >= n_tmp)
 		return (0);
 	return (1);
